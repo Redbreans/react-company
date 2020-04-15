@@ -1,0 +1,22 @@
+.header {
+	height: 60px;
+	background-color: #438CF1;
+	padding-top: 20px;
+}
+.header .header__menu{
+	
+}
+.header .header__menu>div {
+	width: auto;
+	padding: 10px 20px;
+	color: #fff;
+	display: inline-block;
+}
+.content{
+	min-height: calc(100vh - 180px);
+}
+.footer{
+	height: 100px;
+	background-color: #ECF6FF;
+	line-height: 40px;
+}
