@@ -5,7 +5,7 @@ class Talentservice extends React.Component {
 	}
 	render(){
 		return(
-			<h1>主页面</h1>
+			<h1>人才服务</h1>
 		)
 	}
 }

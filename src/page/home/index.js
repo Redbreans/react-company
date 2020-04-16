@@ -5,7 +5,7 @@ class Home extends React.Component {
 	}
 	render(){
 		return(
-			<h1>我是首页page</h1>
+			<h1>首页</h1>
 		)
 	}
 }

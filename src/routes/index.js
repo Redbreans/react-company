@@ -10,7 +10,7 @@ const routes = [{
 		component: Page,
 		exact: true,
 		routes: [{
-			path: 'home',
+			path: '/home',
 			name:'首页',
 			component: Home,
 			exact: true,

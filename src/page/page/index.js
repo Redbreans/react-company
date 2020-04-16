@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
-import './index.css'
+import './index.less'
 import { renderRoutes } from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
 class Page extends React.Component {
@@ -9,11 +9,11 @@ class Page extends React.Component {
 		this.state = {
 			route: props.route
 		}
-     console.log(this.state.route.children,123)
+
 	}
 	render() {
 		const route = this.state.route;
-		
+
 		return(
 			<div>
 				<div className="header">
@@ -24,12 +24,18 @@ class Page extends React.Component {
 			                <div><Link to="/announce">在线公示</Link></div>
 		                </div>
 		            </div>
+		            <h1>主页page</h1>
 				</div> 
+				
 				<div className = "content">
-			
                     {renderRoutes(route.routes)}
-                  
-				   14
+                    
+                  {/*<Switch>
+                      {route.routes.map((item,index) => {
+                    	return (<Route key="index" path={item.path} component={ item.component } ></Route>)
+                   	  })}  
+                   </Switch>*/}
+				   
 				</div>
 				<div className = "footer" style={{textAlign:'center'}}>
 					<div> 版权所有： 萧山区人才管理中心 地址： 萧山区南岸叙府路西段13号 </div> 
@@ -39,8 +45,8 @@ class Page extends React.Component {
 			</div>
 		)
 	}
-	inijected(){
-	
+	inijected() {
+
 	}
 }
 export default Page;
