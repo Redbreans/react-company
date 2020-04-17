@@ -8,12 +8,11 @@ import { renderRoutes } from 'react-router-config';
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
 function App() {
-	console.log("routes0", routes)
-console.log(renderRoutes(routes),1234)
 	return(
 		<div className="App">
 			<BrowserRouter>
 		        {renderRoutes(routes)}
+		        
 		    </BrowserRouter>
 	    
     	</div>

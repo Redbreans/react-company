@@ -12,21 +12,28 @@ class Login extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.accountChange = this.accountChange.bind(this);
 		this.passwordChange = this.passwordChange.bind(this);
+		this.goToHome = this.goToHome.bind(this);
 	}
 	handleSubmit(e) {
 		console.log("eee提交", this.state)
+//		React.$goBack()
 		e.preventDefault();
 	}
-	accountChange(e){
+	accountChange(e) {
+
 		this.setState({
-			account:e.target.value
+			account: e.target.value
 		})
 	}
-	passwordChange(e){
-		console.log("密码",e)
+	passwordChange(e) {
+		console.log("密码", e)
 		this.setState({
-			loginPwd:e.target.value
+			loginPwd: e.target.value
 		})
+	}
+	goToHome() {
+		this.props.history.push('/home')
+
 	}
 	render() {
 		return(
@@ -34,7 +41,7 @@ class Login extends React.Component {
 			
 				<div className="main-content">
 					<div style={{padding:'10px 0',textAlign:'right'}}>
-						<button className="home" type="primary">返回首页</button>
+						<button onClick={this.goToHome} className="home" type="primary">返回首页</button>
 					</div>
 					
 					<div className="" style={{position:'relative',height:'calc(100vh - 60px)'}}>
