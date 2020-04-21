@@ -1,10 +1,15 @@
 import React from 'react';
 import { Button, Carousel } from 'antd'; //引入
 import './index.less'
-import Request from './../../../public/js/request.js'
+import OnlineApi from './../../api/api.js'
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			readUrl:process.env.API_ROOT + '/common/commonFileInfo/download?isDownload=no&fileId',
+			bannerList:[]
+		}
+		console.log("state",this.state)
 		this.getBannerList = this.getBannerList.bind(this)
 	}
 	componentWillMount() {
@@ -30,26 +35,26 @@ class Home extends React.Component {
 		console.log('componentWillUnmount66666')
 	}
 	getBannerList() {
-		let param = {
+		let data = {
 			positionCode: "pcHome",
 			size: 8,
 			start: 0
 		}
-		//		fetch('/online/onlineAdResources/list', {
-		//				method: 'POST',
-		//				body: JSON.stringify(param),
-		//				headers: {
-		//					"Content-Type": "application/json; charset=utf-8",
-		//					"version": "1.0.0"
-		//				}
-		//			}).then(function(response) {
-		//				return response.json();
-		//			})
-		//			.then(function(myJson) {
-		//				console.log(myJson, "请求成功");
-		//			});
-		Request('/online/onlineAdResources/list',param).then(data => {
-			console.log("banner成功",data)
+		OnlineApi.apiOnlineOnlineAdResourcesList(data).then(data => {
+			console.log("banner成功", data);
+			
+			this.setState((prevState) => {
+			let bannerList = [...prevState.bannerList];
+			console.log("prevState",prevState)
+				data.forEach(item => {
+					//bannerList.push(this.state.readUrl + item.resourceId)
+					bannerList.push(this.state.readUrl+'?=5e81abf79c4f076b32caca14')
+				})
+				return {bannerList};
+			})
+			console.log(this.state)
+		}).catch(error => {
+			console.log("error",error)
 		})
 	}
 	render() {
@@ -57,19 +62,15 @@ class Home extends React.Component {
 			<div className="home">
 				{/*<div className=""></div>*/}
 				<div className="banner">
-					<Carousel autoplay>
-					    <div>
-					      <h3>1</h3>
+					<Carousel>
+					{this.state.bannerList.map((item,index) => {
+						return (
+						<div key={index}>
+					      <img src={item} alt="" />
 					    </div>
-					    <div>
-					      <h3>2</h3>
-					    </div>
-					    <div>
-					      <h3>3</h3>
-					    </div>
-					    <div>
-					      <h3>4</h3>
-					    </div>
+					    )}
+					)}
+ 
 					</Carousel>
 				</div>
 				

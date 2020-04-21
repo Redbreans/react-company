@@ -33,7 +33,7 @@ class Login extends React.Component {
 	}
 	goToHome() {
 		this.props.history.push('/home')
-
+		
 	}
 	render() {
 		return(

@@ -7,7 +7,8 @@ class Home extends React.Component {
 	render(){ 
 		return(
 			<div style={{width:'100%',height:'100vh',textAlign:'center',lineHeight:'100vh'}}>
-				<img alt="" src="../img/general_image_404.png" />
+				{/*<img alt="" src="../img/general_image_404.png" />*/}
+				<img src={process.env.PUBLIC_URL + '/img/general_image_404.png'}/>
 			</div>
 		)
 	}

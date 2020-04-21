@@ -2,7 +2,7 @@ import React from 'react';
 import Page from './../page/page/index';
 import Login from './../page/login/index';
 import Page404 from './../page/404page/index';
-import Home from './../page/home/index';
+import Home from './../page/home/index.tsx';
 import Talentservice from './../page/talentservice/index';
 import Announce from './../page/announce/index';
 const routes = [
