@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.main-common{
+	background-color: #F5F7FB;
+}
+.main-common-content{
+	width: 1200px;
+	margin: 0 auto;
+	background-color: #fff;
+	/*margin-top: 20px;*/
+}

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Carousel, Input } from 'antd'; //引入
 import OnlineApi from './../../api/api.js'
 import store from './../../store'
 import './index.less'
 import { getValueChange,getAddChange,getDeleteChange } from './../../store/actionCreators'
+import IndexUi from './indexUi'
 class Talentservice extends React.Component {
 	constructor(props) {
 		super(props);
@@ -32,25 +32,14 @@ class Talentservice extends React.Component {
 		store.dispatch(action)
 	}
 	render() {
-		let list = this.state.list;
-		return(
-			<div className="talentService">
-				<div style={{padding:'10px'}}>
-					<Input value={this.state.inputValue} style={{width:'300px'}} onChange={this.inputValueChange}/>
-					<Button type = "primary" style={{marginLeft:'10px'}} onClick={this.addData}>提交</Button>
-				</div>
-				<div className="list">
-					{list.map((item,index) => {
-						return (
-								<div key={index} onClick={this.deleteData.bind(this,index)}>
-									{item}
-								</div>
-								)
-					})}
-				</div>
-				
-			</div>
-		)
+		
+		return (<IndexUi className="main-common" list={this.state.list}
+				inputValue={this.state.inputValue}
+				inputValueChange={this.inputValueChange}
+				deleteData={this.deleteData}
+				addData={this.addData}
+			/>)
+		
 	}
 }
 export default Talentservice;
