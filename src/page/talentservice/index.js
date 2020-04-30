@@ -33,7 +33,7 @@ class Talentservice extends React.Component {
 	}
 	render() {
 		
-		return (<IndexUi className="main-common" list={this.state.list}
+		return (<IndexUi list={this.state.list}
 				inputValue={this.state.inputValue}
 				inputValueChange={this.inputValueChange}
 				deleteData={this.deleteData}
